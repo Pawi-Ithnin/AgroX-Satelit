@@ -1,4 +1,4 @@
-// 1. Setup Peta (Fokus ke Johor Bahru)
+// 1. Setup Peta (Fokus ke Malaysia)
 const map = L.map('map').setView([1.4927, 103.7414], 14); 
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
