@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro X SPACE - Analisis Kesuburan</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-wrapper">
+        <aside class="sidebar">
+            <div class="brand">
+                <h1>Agro X <span>SPACE</span></h1>
+                <p>Satelit Real-Time oleh Agro X Tech</p>
+            </div>
+
+            <div class="info-card">
+                <label>📍 Lokasi Ladang</label>
+                <div id="location-name" class="value">Cari lokasi di peta...</div>
+            </div>
+
+            <div class="info-card">
+                <label>🌱 Status Kesuburan</label>
+                <div id="health-value" class="value">Sila pilih Analisis NDVI</div>
+                <div class="status-bar"><div id="bar-fill" class="fill"></div></div>
+            </div>
+
+            <div class="layer-control">
+                <h3>Kawalan Pandangan</h3>
+                <button class="btn" onclick="setLayer('NATURAL')">Warna Sebenar (Foto)</button>
+                <button class="btn btn-primary" onclick="setLayer('NDVI')">Analisis Kesuburan (NDVI)</button>
+            </div>
+
+            <div id="ndvi-legend" class="legend-container" style="display: none;">
+                <h4>Petunjuk Kesihatan Tanaman</h4>
+                <div class="legend-item">
+                    <span class="color-box" style="background: #006400;"></span>
+                    <span class="label"><strong>Sangat Subur</strong> (Hijau Pekat)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="color-box" style="background: #32cd32;"></span>
+                    <span class="label"><strong>Subur</strong> (Pertumbuhan Baik)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="color-box" style="background: #ffff00;"></span>
+                    <span class="label"><strong>Kurang Subur</strong> (Perlu Baja/Air)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="color-box" style="background: #ff4500;"></span>
+                    <span class="label"><strong>Stres / Tanah Kosong</strong></span>
+                </div>
+                <div class="legend-item">
+                    <span class="color-box" style="background: #808080;"></span>
+                    <span class="label"><strong>Bukan Tanaman</strong> (Jalan/Rumah)</span>
+                </div>
+            </div>
+
+            <div class="footer">
+                <p>&copy; 2026 Agro X Tech</p>
+            </div>
+        </aside>
+
+        <main id="map"></main>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
